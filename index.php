@@ -3,49 +3,43 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>LOGIN ALMACÉN</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-       <?php
-        $conexion = new mysqli('localhost', 'root', '', 'test');
-        $consulta = $conexion -> query("Set names utf8");
-        $consulta = $conexion -> query("SELECT * FROM usuarios2 "); 
-        ?>
-        <div class="container-fluid">
-            <div class ="row-fluid">
-                <div class="span4">
-                  <select name="listaNombres" id="lista">
-                      <?php
-                      while ($fila = $consulta->fetch_assoc()) {
-                          if (file_exists("img1/" . $fila["DNI"] . ".jpg")) {
-                              echo '<option>'.$fila["DNI"].'</option>';  
-                          }
-                      }
-                      ?>
-                  </select>   
-                </div>
-                <div class="span8" id='marcoCentral'>
-                    
-                </div>
-            </div>
+    <body class="text-center" style="background-image: url('img/almacen.jpg'); background-repeat: no-repeat; background-size: 100%; color:white; ">
+
+        <div style="border: solid 2px orange; position: fixed; top: 10%; left: 20%; right: 20%; width: 60%; height: 10%; background-image: url('img/banner.jpg');">
+
+            <h1 style="color: #ffde88;"><i><u>Ingrese Su Usuario</u></i></h1> 
             
         </div>
-        <script>
-            $(document).ready(function(){
-               $('#marcoCentral').load("cargafoto.php");
-               
-               $('#lista').on('change', function() {
-                   $('#marcoCentral').load("cargafoto.php", {
-                       dni_seleccionado : this.value 
-                   });
-                     
-                });
-            });
-        </script>
+
+
+        <div class="container" id="principal" style="clear: both; background-color: #ffde88; border: solid 2px orange; position: fixed; top: 20%; left: 10%; right: 10%; width: 50%;">
+            <br>
+            <br>
+            <br>
+
+            <div class ="row">
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                    <br/><br/>
+                    <input id ="cajaNombre" class="form-control" type="text" placeholder="Usuario" required="required" style="text-align: center">
+                    <br/>
+                    <input id ="cajaPassword" class="form-control" type="password" placeholder="Contraseña" required="required" style="text-align: center">
+                    <br/>
+                    <button id="boton1" class="btn btn-warning btn-block" type="submit">Iniciar Sesión</button>
+                    <br/><br/>
+                </div>
+                <div class="col-4">
+                </div>
+            </div>
+        </div>
+
     </body>
+
+
+
 </html>
