@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-11-2018 a las 18:53:04
+-- Tiempo de generación: 20-11-2018 a las 18:01:41
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `almacen`
+-- Base de datos: `articulosalmacen`
 --
 
 -- --------------------------------------------------------
@@ -212,28 +212,6 @@ INSERT INTO `articulos` (`Nombre`, `ID`, `Num_Serie`, `Cantidad`) VALUES
 ('Antipop', '100170', '40FEA8', 1),
 ('Pie de micro', '100171', '212C1E', 1),
 ('Kit batería', '100172', '6E3965', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE `usuario` (
-  `idusuario` varchar(9) NOT NULL,
-  `nombreusuario` varchar(16) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `userpass` varchar(1024) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idusuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
