@@ -17,9 +17,7 @@
 
 
         <div class="container" id="principal" style="clear: both; background-color: #ffde88; border: solid 2px orange; position: fixed; top: 20%; left: 10%; right: 10%; width: 50%;">
-            <br>
-            <br>
-            <br>
+          
 
             <div class ="row">
                 <div class="col-4">
@@ -40,6 +38,31 @@
 
     </body>
 
+<script>
+                    // document ready se ejecuta cuando toda la página se ha cargado correctamente
+                    $(document).ready(function () {
+          
+                    });
 
+                    $.validate({
+                        lang: 'es'
+                    });
+
+
+
+                    $('#boton1').click(function () {
+                        //leo el contenido de las cajas de nombre y contraseña
+                        var _cajaNombre = $('#cajaNombre').val();
+                        var _cajaPassword = $('#cajaPassword').val();
+
+                        $('#principal').load("login.php", {
+                            cajaNombre: _cajaNombre,
+                            cajaPassword: _cajaPassword
+                        });
+                    });
+             
+          
+             
+    </script>
 
 </html>
