@@ -30,17 +30,45 @@
                 <div class="col-2"></div>
                 <div class="col-8">
                     <div style="background-color: #00ff00">sefefsefwsefs</div>
-                    <button class="btn btn-primary" style="margin-left: 90%">Añadir</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#btnAnyadir" style="margin-left: 90.9%">
+                        Añadir
+                    </button>
                 </div>
                 <div class="col-2"></div>
             </div>
         </div>
 
     </body>
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
-
+        
     </script>
+
+    <div class="modal fade" id="btnAnyadir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añade un material a tu inventario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Nombre:</p>
+                    <input type="text" class="form-control" id="recipient-name">
+                    <p>Numero de Serie:</p>
+                    <input type="text" class="form-control" id="recipient-name">
+                    <p>Cantidad:</p>
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Añadir</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </html>
