@@ -23,7 +23,7 @@
         <div id="buscapadre" class="row" style="width: 100%">
             <div class="col-4"></div>
             <div id="buscador" class="col-4">
-                <input class="typeahead form-control" type="text" placeholder="Buscar">
+                <input id="busqueda" class="typeahead form-control" type="text" placeholder="Buscar">
             </div>
             <div class="col-5"></div>
         </div>
@@ -31,8 +31,8 @@
         <div class="container" id="Principal" style="clear: both; background-color: #ffffff">
             <div id="Contenido" class="row">
                 <div class="col-2"></div>
-                <div class="col-8">
-                    
+                <div id="resultado" class="col-8">
+
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -44,7 +44,44 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
+        $(Document).ready(function () {
 
+            var consulta;
+
+            //hacemos focus al campo de búsqueda
+            $("#busqueda").focus();
+
+            //comprobamos si se pulsa una tecla
+            $("#busqueda").keyup(function (e) {
+
+                //obtenemos el texto introducido en el campo de búsqueda
+                consulta = $("#busqueda").val();
+
+                //hace la búsqueda
+
+                $.ajax({
+                    type: "POST",
+                    url: "buscar.php",
+                    data: "b=" + consulta,
+                    dataType: "html",
+                    beforeSend: function () {
+                        //imagen de carga
+                        $("#resultado").html(<p align='center'><img src='img/ajax-loader.gif' /></p>);
+                    },
+                    error: function () {
+                        alert("error petición ajax");
+                    },
+                    success: function (data) {
+                        $("#resultado").empty();
+                        $("#resultado").append(data);
+
+                    }
+                });
+
+
+            });
+
+        });
     </script>
 
     <div class="modal fade" id="btnAnyadir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
