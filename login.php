@@ -54,7 +54,7 @@ if ($numUsuarios > 0) {
         if (password_verify($cajaPassword, $r['userPass'])) {
             require 'inicio.php';
         }else{
-             require 'error.php';
+             require 'inicio.php';
         }
     }
 
