@@ -1,7 +1,6 @@
 <?php
 
 $servidor = "localhost";
-$bbdd = 'evau2018';
+$bbdd = 'almacen';
 $usuario_mysql = 'root';
-$clave_mysql = '';
 
