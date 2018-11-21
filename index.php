@@ -35,6 +35,10 @@
                 </div>
             </div>
         </div>
+        
+        <div id="cargaInicio">
+            
+        </div>
 
     </body>
     <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
@@ -56,7 +60,8 @@
                         //leo el contenido de las cajas de nombre y contraseña
                         var _cajaNombre = $('#cajaNombre').val();
                         var _cajaPassword = $('#cajaPassword').val();
-
+                        
+                        window.open('inicio.php', '_blank');
                         $('#contenedor').load("login.php", {
                             cajaNombre: _cajaNombre,
                             cajaPassword: _cajaPassword
