@@ -26,7 +26,6 @@ $cajaPassword = limpiaPalabra($_POST['cajaPassword']);
 //echo 'Has escrito el usuario: '.$cajaNombre.' y la contraseña: '.$cajaPassword; 
 
 //
-$elHash = '$2y$10$upQdsCXEF/NT7FujdzJtK.WHt3RxEh7V5op.AGM.h6/';
 //$passEncriptada =  password_hash($cajaPassword, PASSWORD_BCRYPT);
 //
 //    if (password_verify($cajaPassword, $elHash)) {
@@ -36,24 +35,24 @@ $elHash = '$2y$10$upQdsCXEF/NT7FujdzJtK.WHt3RxEh7V5op.AGM.h6/';
 //    }
 
 
-$resultadoQuery = $mysqli->query("SELECT * FROM usuarios 
-                                WHERE nombreUsuario='$cajaNombre' ");
+$resultadoQuery = $mysqli->query("SELECT * FROM usuariosalmacen 
+                                WHERE DNI='$cajaNombre' ");
 
 $numUsuarios = $resultadoQuery->num_rows;
 
 if ($numUsuarios > 0) {
     $r = $resultadoQuery->fetch_array();
     //En la variable de sesion "nombreUsuario" guardo el nombre de usuario
-    $_SESSION['nombreUsuario'] = $cajaNombre;
+    $_SESSION['DNI'] = $cajaNombre;
     //En la variable de seson idUsuario guardo el id de usuario leido de la bbdd 
     $_SESSION['idUsuario'] = $r['idUsuario'];
 
 
     if ($numUsuarios > 0) {
-        $_SESSION['nombreUsuario'] = $cajaNombre;
+        $_SESSION['DNI'] = $cajaNombre;
         
         if (password_verify($cajaPassword, $r['userPass'])) {
-            require 'app.php';
+            require 'inicio.php';
         }else{
              require 'error.php';
         }
