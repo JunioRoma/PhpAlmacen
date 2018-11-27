@@ -52,9 +52,9 @@ if ($numUsuarios > 0) {
         $_SESSION['DNI'] = $cajaNombre;
         
         if (password_verify($cajaPassword, $r['userPass'])) {
-            require 'inicio.php';
+             echo "<SCRIPT>window.open('inicio.php', '_blank');</SCRIPT>"; 
         }else{
-             require 'inicio.php';
+            echo "<SCRIPT>window.open('inicio.php', '_blank');</SCRIPT>"; 
         }
     }
 
