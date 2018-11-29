@@ -9,18 +9,12 @@
 
     <?php
     $host_db = "localhost";
-
     $user_db = "root";
-
     $pass_db = "";
-
     $db_name = "almacen";
-
     $tbl_name = "articulos";
 
 
-
-    $form_pass = $_POST['userPass'];
 
 
     $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
@@ -32,48 +26,49 @@
         die("La conexion falló: " . $conexion->connect_error);
     }
 
+    $articulo = $_POST['nombreArticulo'];
+    $num_serie = $_POST['numSerie'];
+    $cantidad = $_POST['cantidad'];
+    echo 'Funciona?';
+    
+    
+    $insertaDatos = ("INSERT INTO $tbl_name (Nombre, Num_Serie, Cantidad) VALUES (:articulo, :num_serie, :cantidad)");
+
+    $insertaDatos -> bindParam(':articulo', $articulo);
+    $insertaDatos -> bindParam(':num_serie', $num_serie);
+    $insertaDatos -> bindParam(':cantidad', $cantidad);
 
 
-    $buscarArticulo = "SELECT * FROM $tbl_name WHERE Nombre = '$_POST[nombreArticulo]' ";
-    $buscarId = "SELECT * FROM $tbl_name WHERE ID = '$_POST[id]' ";
-    $buscarNumSerie = "SELECT * FROM $tbl_name WHERE Num_Serie = '$_POST[numSerie]' ";
-    $buscarCantidad = "SELECT * FROM $tbl_name WHERE Cantidad = '$_POST[cantidad]' ";
-
-
-
-
-    $result = $conexion->query($buscarId);
-
-
-
-    $count = mysqli_num_rows($result);
-
-
-
-    if ($count == 1) {
-        
-    } else {
-
-        $query = "INSERT INTO articulos (Nombre, ID, Num_Serie, Cantidad)";
-
-
-
-
-
-//        if ($conexion->query($query) === TRUE) {
+//    $numId  = "SELECT * FROM $tbl_name WHERE ID = '$_POST[idArticulo]' ";
+//    $buscarArticulo = "SELECT * FROM $tbl_name WHERE Nombre = '$_POST[nombreArticulo]' ";
+//    $buscarNumSerie = "SELECT * FROM $tbl_name WHERE Num_Serie = '$_POST[numSerie]' ";
+//    $buscarCantidad = "SELECT * FROM $tbl_name WHERE Cantidad = '$_POST[cantidad]' ";
 //
 //
 //
-//            echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
 //
-//            echo "<h4>" . "Bienvenido: " . $_POST['nombreUsuario'] . "</h4>" . "\n\n";
-//        } else {
+//    $result = $conexion->query($numId);
 //
-//            echo "Error al crear el usuario." . $query . "<br>" . $conexion->error;
-//        }
-    }
+//
+//
+//    $count = mysqli_num_rows($result);
+//
+//
+//
+//    if ($count == 1) {
+//        
+//    } else {
+//
+//        $query = "INSERT INTO articulos ('$buscarArticulo', '$buscarNumSerie', '$buscarCantidad') "
+//                . "VALUES(Nombre, Num_Serie, Cantidad)";
+//
+//
+//
+//
+// 
+//    }
 
     mysqli_close($conexion);
     ?>
-     
+
 </html>

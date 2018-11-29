@@ -6,7 +6,7 @@
         <title></title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <form action="registroProductos.php" method="post"> 
+    
     </head>
     <body style="background-color: #ffde88">
         <div id="papa" >
@@ -45,7 +45,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
-        $(Document).ready(function () {
+        $(document).ready(function () {
 
             var consulta;
 
@@ -67,7 +67,7 @@
                     dataType: "html",
                     beforeSend: function () {
                         //imagen de carga
-                        $("#resultado").html(<p align='center'><img src='img/ajax-loader.gif' /></p>);
+                        $("#resultado").html("<p align='center'><img src='img/ajax-loader.gif' /></p>");
                     },
                     error: function () {
                         alert("error petición ajax");
@@ -82,37 +82,53 @@
 
             });
 
+            
+
         });
-                </script>
+        
+        
+        function leeRegistro() {
 
-            <div class="modal fade" id="btnAnyadir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Añade un producto al inventario</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="nombreArticulo">Nombre:</p>
-                        <input type="text" class="form-control" id="recipient-name">
-                        <br>
-                        <p class="id">ID:</p>
-                        <input type="text" class="form-control" id="recipient-name">
-                        <br>
+                var _nombreArticulo = $('#nombreArticulo').val();
+                var _numSerie = $('#numSerie').val();
+                var _cantidad = $('#cantidad').val();
 
-                        <p class="numSerie">Numero de Serie:</p>
-                        <input type="text" class="form-control" id="recipient-name">
-                        <br>
-                        <p class="cantidad">Cantidad:</p>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Añadir</button>
-                    </div>
+                //$('#modalito').load("registroProductos.php", {
+                $('#pruebas').load("registroProductos.php", {      
+                    nombreArticulo: _nombreArticulo,
+                    numSerie: _numSerie,
+                    cantidad: _cantidad
+                });
+            }
+    </script>
+
+    <div id="pruebas"></div>
+    
+    <div class="modal fade" id="btnAnyadir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Añade un producto al inventario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <div class="modal-body" id="modalito">
+                    <p class="nombreArticulo">Nombre:</p>
+                    <input type="text" class="form-control" id="recipient-name">
+                    <br>
+                    <p class="numSerie">Numero de Serie:</p>
+                    <input type="text" class="form-control" id="recipient-name">
+                    <br>
+                    <p class="cantidad">Cantidad:</p>
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="leeRegistro();">Añadir</button>
+                </div>
+                
             </div>
         </div>
+    </div>
 </html>
