@@ -6,7 +6,7 @@
         <title></title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    
+        
     </head>
     <body style="background-color: #ffde88">
         <div id="papa" >
@@ -92,12 +92,14 @@
                 var _nombreArticulo = $('#nombreArticulo').val();
                 var _numSerie = $('#numSerie').val();
                 var _cantidad = $('#cantidad').val();
+                var _idArticulo = $('#ID').val();
 
                 //$('#modalito').load("registroProductos.php", {
                 $('#pruebas').load("registroProductos.php", {      
                     nombreArticulo: _nombreArticulo,
                     numSerie: _numSerie,
-                    cantidad: _cantidad
+                    cantidad: _cantidad,
+                    ID: _idArticulo
                 });
             }
     </script>
@@ -114,14 +116,17 @@
                     </button>
                 </div>
                 <div class="modal-body" id="modalito">
-                    <p class="nombreArticulo">Nombre:</p>
-                    <input type="text" class="form-control" id="recipient-name">
+                    <p>Nombre:</p>
+                    <input type="text" class="form-control" id="nombreArticulo">
                     <br>
-                    <p class="numSerie">Numero de Serie:</p>
-                    <input type="text" class="form-control" id="recipient-name">
+                    <p>Numero de Serie:</p>
+                    <input type="text" class="form-control" id="numSerie">
                     <br>
-                    <p class="cantidad">Cantidad:</p>
-                    <input type="text" class="form-control" id="recipient-name">
+                    <p>Cantidad:</p>
+                    <input type="text" class="form-control" id="cantidad">
+                    <br>
+                    <p>ID:</p>
+                    <input type="text" class="form-control" id="ID">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
